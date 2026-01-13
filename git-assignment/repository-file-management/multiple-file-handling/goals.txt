@@ -1,3 +1,2 @@
 Goals:
     to become a developer
-    -adding goals
