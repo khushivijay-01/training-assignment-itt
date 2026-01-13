@@ -12,4 +12,4 @@
     -git merge featue-profile
 7) Verify the merged changes.
     -git log --oneline
-    here HEAD verfies the merging part
+    here HEAD verfies the merging part.
