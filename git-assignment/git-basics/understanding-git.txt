@@ -1,0 +1,17 @@
+1) what is Git ?
+-   Git is a version control system that helps us to track and manage the changes that is happening in our code. It also gives us the facility to work on different features simultaneously without affecting our main code.
+
+2) Why is Git required in Software development ?
+-   As we know that many developers work on the same project simultaneously, they need to track all the changes that is happening in the code and manage it accordingly. Git provides us the facility to track all the changes and do work collaboratively. 
+
+3) Difference between Git and GitHub ?
+- i) Git is a version control system while github is a remote server for version control and provides us the features like repositories, pull requests, work with team etc.
+ ii) Git works on our local system while github works remotely .
+ iii) Git track and manage changes on local system while github is used to share all the changes remotely with others.
+ iv) Git is used through the command line while github provides the GUI.
+
+4) What is a repository ?
+- Repository is like a folder where it can stores all our project files, code, data etc. It allows us to work together and manage the changes using git.
+
+5) What is version control?
+-  Version control is also known as the source control which helps to track and manage the code changes.
