@@ -1,3 +1,3 @@
-Hello , My name is Khushi Vijay. I am from jaipur and currently working in intime tech as a trainee.  
+Hello Team, My name is Khushi Vijay. I am from jaipur and currently working in intime tech as a trainee.  
 I am a learner in full-stack development and currently working on Git and GitHub fundamentals.  
 I am improving my skills in version control, collaboration, and modern web technologies.
