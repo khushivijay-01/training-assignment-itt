@@ -1,0 +1,25 @@
+1) Difference between soft reset, mixed reset, and hard reset.
+- soft reset => In soft reset , it removes the commit but keep all changes in staging area.
+        command: git reset --soft <commit id>
+- mixed reset => In mixed reset , it removes the commit, also unstages the changes . 
+        command: git reset --mixed <commit id>
+- hard reset => In hard reset , it removes the commit and discards all the changes.
+        command: git reset --hard <commit id>
+
+2) Difference between reset and revert.
+- Reset => Reset moves the head to a particular commit by using its commit id and it creates effect on commit history . these effects are based on soft , mixed and hard reset . 
+while in Revert => It creates a new commit to undo a specific commit.it does not change the commit history.
+
+3) When should revert be preferred over reset?
+- Revert is preferred when the commit is already pushed to a branch, and we want safely undo a specific commit. 
+Reset is not used when the code is already pushed . it is unsafe .
+
+4) What is cherry-pick in Git?
+- cherry-pick is used when we have mulitple commits in another branch but we want to apply a specific commit without merging the branch. 
+    command: git cherry-pick <commid id>
+
+5) When should cherry-pick be avoided?
+- It is avoided when mulitple commits are required and they are dependent on each other. Here we have to pick all the commits one by one which effects our commit history . for this , merging the branch is a better option.
+
+6) What problems can arise if cherry-pick is overused?
+- when cherry-pick is overused , it maybe skip some dependent commits. this can break the flow and skips some functionality bz this commit is also dependent on previous one. this makes my code incorrect.
