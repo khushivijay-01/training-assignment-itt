@@ -1,4 +1,4 @@
-1) create multiple files and Make changes to multiple files. 
+1) Create multiple files and Make changes to multiple files. 
 
 2) Stash the changes. 
 - git stash

@@ -10,4 +10,4 @@
 - git add intro.txt
 
 5) Commit the file with a meaningful message.
-- git commit -m "add task 4 working with files and add intro.txt file with short description"
+- git commit -m "Add task 4 working with files and add intro.txt file with short description"

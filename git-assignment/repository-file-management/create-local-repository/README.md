@@ -1,13 +1,13 @@
 1)Create a new folder named git-learning-assignment.
-- use command: 
+- Use command: 
     mkdir git-learning-assignment
 
 2) Initialize Git inside this folder.
-- use command:
+- Use command:
   cd git-learning-assignment
   git init
 
 3) Check the repository status 
-- use command:
+- Use command:
     git status 
-    -it shows nothing to commit , working tree clean.
+    -It shows nothing to commit, working tree clean.

@@ -1,1 +1,1 @@
-this is a dummy file in feature-dashboard branch.
+This is a dummy file in feature-dashboard branch.
