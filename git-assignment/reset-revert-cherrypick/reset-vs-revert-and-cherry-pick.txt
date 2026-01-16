@@ -1,25 +1,25 @@
 1) Difference between soft reset, mixed reset, and hard reset.
-- Soft reset => In Soft reset, it removes the commit but keep all changes in staging area.
+ -Soft reset => In Soft reset, it removes the commit but keep all changes in staging area.
         command: git reset --soft <commit id>
-- Mixed reset => In Mixed reset, it removes the commit, also unstages the changes. 
+ -Mixed reset => In Mixed reset, it removes the commit, also unstages the changes. 
         command: git reset --mixed <commit id>
-- Hard reset => In Hard reset, it removes the commit and discards all the changes.
+ -Hard reset => In Hard reset, it removes the commit and discards all the changes.
         command: git reset --hard <commit id>
 
 2) Difference between reset and revert.
-- Reset => Reset moves the HEAD to a particular commit using its commit ID and removes the commits from the commit history. These effects are based on which reset command you used like soft, mixed and hard reset.
- Revert => Revert creates a new commit for that particular one and undo all the changes made by specific commit. It does not change the commit history; instead, it adds one more commit.
+ -Reset => Reset moves the HEAD to a particular commit using its commit ID and removes the commits from the commit history. These effects are based on which reset command you used like soft, mixed and hard reset.
+  Revert => Revert creates a new commit for that particular one and undo all the changes made by specific commit. It does not change the commit history; instead, it adds one more commit.
 
 3) When should revert be preferred over reset?
-- Revert is preferred when the commit is already pushed to a branch, and we want safely undo a specific commit. 
-Reset is not used when the code is already pushed. It is unsafe.
+ -Revert is preferred when the commit is already pushed to a branch, and we want safely undo a specific commit. 
+  Reset is not used when the code is already pushed. It is unsafe.
 
 4) What is cherry-pick in Git?
-- Cherry-pick is used when we have mulitple commits in another branch but we want to apply a specific commit without merging the branch. 
-    command: git cherry-pick <commid id>
+ -Cherry-pick is used when we have mulitple commits in another branch but we want to apply a specific commit without merging the branch. 
+        command: git cherry-pick <commid id>
 
 5) When should cherry-pick be avoided?
-- It is avoided when mulitple commits are required and they are dependent on each other. Here we have to pick all the commits one by one which effects our commit history. For this, merging the branch is a better option.
+ -It is avoided when mulitple commits are required and they are dependent on each other. Here we have to pick all the commits one by one which effects our commit history. For this, merging the branch is a better option.
 
 6) What problems can arise if cherry-pick is overused?
-- When cherry-pick is overused, it maybe skip some dependent commits. This can break the flow and skips some functionality bz this commit is also dependent on previous one. This makes my code incorrect.
+ -When cherry-pick is overused, it maybe skip some dependent commits. This can break the flow and skips some functionality bz this commit is also dependent on previous one. This makes my code incorrect.
