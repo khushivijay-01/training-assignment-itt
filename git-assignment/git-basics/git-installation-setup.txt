@@ -1,0 +1,17 @@
+1) Install Git on your system.
+ -To install git on the system,
+  -Firstly, we need to download the git from the official website.
+  -Then, run the downloaded file and follow the installation steps.
+  -After installation, it is available on our system and also verify it by using the command "git --version".
+
+2) Verify the installation.
+ -To verify, open the git bash and use the command "git --version". If it displays the version it means git is installed successfully.
+
+3) Configure Git with your name and email.
+ -To configure, use command 
+  -For name = "git config --global user.name "[filename lastname]"
+  -For email = "git config --global user.email "[valid email]"
+
+4) Check the configure details.
+ -Use command: "git config --global --list".
+ -It gives me the details of name , email etc. 
