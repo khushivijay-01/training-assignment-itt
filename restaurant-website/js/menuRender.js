@@ -82,7 +82,6 @@ function createCategorySection(categoryName, items) {
       }
     });
 
-    // 🔥 IMPORTANT MAP
     productCardMap[product.name.toLowerCase()] = {
       section,
       track,
@@ -143,17 +142,14 @@ function scrollToProduct(productName) {
 
   const { section, track, index } = data;
 
-  // 1️⃣ scroll to category section
   section.scrollIntoView({
     behavior: "smooth",
     block: "start",
   });
 
-  // 2️⃣ slide carousel to product
   const cardWidth = 280;
   track.style.transform = `translateX(-${index * cardWidth}px)`;
 
-  // 3️⃣ highlight card
   const cards = track.children;
   [...cards].forEach((card) => card.classList.remove("active-card"));
 
@@ -166,7 +162,6 @@ if (categoryFilter) {
   categoryFilter.addEventListener("change", function () {
     const selectedCategory = this.value;
 
-    // All select ho to top par le jao
     if (selectedCategory === "all") {
       window.scrollTo({
         top: 0,
