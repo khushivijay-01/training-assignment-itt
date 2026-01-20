@@ -150,7 +150,7 @@ const fastFood = [
     price: 320,
     category: "Fast Food",
     stock: 25,
-    image: "images/chicken-pizza.jpg",
+    image: "images/cheese-pizza.jpg",
   },
   {
     id: 2304,
@@ -252,7 +252,7 @@ const desserts = [
     price: 220,
     category: "Desserts",
     stock: 18,
-    image: "images/cheesecake-slice.jpg",
+    image: "images/chocolate-brownie.jpg",
   },
 ];
 
