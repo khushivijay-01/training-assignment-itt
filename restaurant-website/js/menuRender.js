@@ -179,10 +179,6 @@ if (categoryFilter) {
   });
 }
 
-// function getCart() {
-//   return JSON.parse(localStorage.getItem("cart")) || [];
-// }
-
 function addToCart(product, quantity) {
   let cart = getCart();
 
