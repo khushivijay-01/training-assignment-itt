@@ -9,4 +9,3 @@ window.addEventListener("load", function() {
         preloader.style.display = "none";
     }, 500);
 });
-console.log("preloader js connected");
