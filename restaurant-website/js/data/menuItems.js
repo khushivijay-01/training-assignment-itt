@@ -256,7 +256,7 @@ const desserts = [
   },
 ];
 
-export const products = [
+export const menuItems = [
   ...starters,
   ...mainCourse,
   ...breadsAndRice,
