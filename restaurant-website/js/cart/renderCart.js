@@ -3,7 +3,7 @@
 const cartContainer = document.getElementById("cart-container");
 const cartTotal = document.getElementById("cart-total");
 
-function getCart() {
+export function getCart() {
   return JSON.parse(localStorage.getItem("cart")) || [];
 }
 
@@ -20,6 +20,7 @@ function calculateTotal(cart) {
 let cart = getCart();
 
 function renderCart() {
+  if (!cartContainer) return;
   cartContainer.innerHTML = "";
 
   if (cart.length === 0) {

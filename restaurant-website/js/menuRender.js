@@ -1,6 +1,7 @@
 "use strict";
 
-import { products } from "./data/products.js";
+import { menuItems } from "./data/menuItems.js";
+import { getCart } from "./cart/renderCart.js";
 
 const menuContainer = document.getElementById("menu-container");
 const productCardMap = {};
@@ -15,7 +16,7 @@ function groupByCategory(items) {
   }, {});
 }
 
-const groupedProducts = groupByCategory(products);
+const groupedProducts = groupByCategory(menuItems);
 
 function createCategorySection(categoryName, items) {
   const section = document.createElement("section");
@@ -149,11 +150,6 @@ function scrollToProduct(productName) {
 
   const cardWidth = 280;
   track.style.transform = `translateX(-${index * cardWidth}px)`;
-
-  const cards = track.children;
-  [...cards].forEach((card) => card.classList.remove("active-card"));
-
-  cards[index].classList.add("active-card");
 }
 
 const categoryFilter = document.getElementById("category-filter");
@@ -183,10 +179,9 @@ if (categoryFilter) {
   });
 }
 
-
-function getCart() {
-  return JSON.parse(localStorage.getItem("cart")) || [];
-}
+// function getCart() {
+//   return JSON.parse(localStorage.getItem("cart")) || [];
+// }
 
 function addToCart(product, quantity) {
   let cart = getCart();
