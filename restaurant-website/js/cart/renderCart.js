@@ -14,6 +14,28 @@ function calculateTotal(cart) {
 
 let cart = getCart();
 
+function cardTemplate(item) {
+  return `
+    <img src="${item.image}" alt="${item.name}">
+    
+    <div class="cart-details">
+      <h4>${item.name}</h4>
+      <p>₹${item.price}</p>
+
+      <div class="qty-controls">
+        <button class="minus">−</button>
+        <span class="qty">${item.quantity}</span>
+        <button class="plus">+</button>
+      </div>
+    </div>
+
+    <div class="item-total">
+      ₹${item.price * item.quantity}
+    </div>
+  `;
+}
+
+
 function renderCart() {
   if (!cartContainer) return;
   cartContainer.innerHTML = "";
@@ -28,24 +50,7 @@ function renderCart() {
     const div = document.createElement("div");
     div.className = "cart-item";
 
-    div.innerHTML = `
-      <img src="${item.image}" alt="${item.name}">
-      
-      <div class="cart-details">
-        <h4>${item.name}</h4>
-        <p>₹${item.price}</p>
-
-        <div class="qty-controls">
-          <button class="minus">−</button>
-          <span class="qty">${item.quantity}</span>
-          <button class="plus">+</button>
-        </div>
-      </div>
-
-      <div class="item-total">
-        ₹${item.price * item.quantity}
-      </div>
-    `;
+    div.innerHTML = cardTemplate(item);
 
     const plusBtn = div.querySelector(".plus");
     const minusBtn = div.querySelector(".minus");

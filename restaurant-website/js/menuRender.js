@@ -86,12 +86,8 @@ function setupCarousel(section, totalCards) {
   });
 }
 
-function createCategorySection(categoryName) {
-  const section = document.createElement("section");
-  section.className = "category-section";
-  section.dataset.category = categoryName;
-
-  section.innerHTML = `
+function categorySectionTemplate(categoryName) {
+  return `
     <h2 class="category-title">${categoryName}</h2>
     <div class="carousel-wrapper">
       <button class="nav-btn left">&#10094;</button>
@@ -101,16 +97,18 @@ function createCategorySection(categoryName) {
       <button class="nav-btn right">&#10095;</button>
     </div>
   `;
+}
 
+function createCategorySection(categoryName) {
+  const section = document.createElement("section");
+  section.className = "category-section";
+  section.dataset.category = categoryName;
+  section.innerHTML = categorySectionTemplate(categoryName);
   return section;
 }
 
-function createProductCard(product, index, section) {
-  const card = document.createElement("div");
-  card.className = "carousel-card";
-  card.dataset.name = product.name.toLowerCase();
-
-  card.innerHTML = `
+function productCardTemplate(product) {
+  return `
     <img src="${product.image}" alt="${product.name}">
     <div class="content">
       <h4>${product.name}</h4>
@@ -126,6 +124,14 @@ function createProductCard(product, index, section) {
       </div>
     </div>
   `;
+}
+
+function createProductCard(product, index, section) {
+  const card = document.createElement("div");
+  card.className = "carousel-card";
+  card.dataset.name = product.name.toLowerCase();
+
+  card.innerHTML = productCardTemplate(product);
 
   attachCardEvents(card, product);
   registerCardMap(card, section, index, product);
