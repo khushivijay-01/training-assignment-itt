@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -34,6 +34,18 @@
         <a href="#hours-contacts">Contact</a>
         <a href="#enquiry">Enquiry</a>
       </nav>
+
+      <button id="loginBtn" class="cart-btn">Login</button>
+
+      <div id="profile" class="hidden">
+        <span id="profile-name"></span>
+        <div id="profile-menu" class="profile-menu hidden">
+          <p id="accountBtn">My Account</p>
+          <p id="ordersBtn">Orders</p>
+          <p id="logoutBtn">Logout</p>
+        </div>
+      </div>
+
       <a href="cart.html" class="cart-btn">
         🛒 Cart <span id="cart-count">0</span>
       </a>
@@ -111,6 +123,19 @@
     </section>
 
     <div id="popupMessage" class="popup">Submitted successfully</div>
+
+    <div id="login-panel" class="login-panel">
+      <div class="login-header">
+        <h3>Login</h3>
+        <span id="close-login">✖</span>
+      </div>
+
+      <input id="login-name" placeholder="Enter Name" />
+      <input id="login-phone" placeholder="Enter Phone" />
+      <input id="login-email" placeholder="Enter Email" />
+
+      <button id="continueBtn">Continue</button>
+    </div>
 
     <footer id="footer" class="footer"></footer>
     <button id="scrollTopBtn">⬆</button>

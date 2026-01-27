@@ -1,15 +1,10 @@
 "use strict";
 
+import { getCart, saveCart } from "../utilityFunctions.js";
+
 const cartContainer = document.getElementById("cart-container");
 const cartTotal = document.getElementById("cart-total");
-
-export function getCart() {
-  return JSON.parse(localStorage.getItem("cart")) || [];
-}
-
-function saveCart(cart) {
-  localStorage.setItem("cart", JSON.stringify(cart));
-}
+const buyNowBtn = document.querySelector(".btn.primary");
 
 function calculateTotal(cart) {
   return cart.reduce((sum, item) => {
@@ -18,6 +13,28 @@ function calculateTotal(cart) {
 }
 
 let cart = getCart();
+
+function cardTemplate(item) {
+  return `
+    <img src="${item.image}" alt="${item.name}">
+    
+    <div class="cart-details">
+      <h4>${item.name}</h4>
+      <p>₹${item.price}</p>
+
+      <div class="qty-controls">
+        <button class="minus">−</button>
+        <span class="qty">${item.quantity}</span>
+        <button class="plus">+</button>
+      </div>
+    </div>
+
+    <div class="item-total">
+      ₹${item.price * item.quantity}
+    </div>
+  `;
+}
+
 
 function renderCart() {
   if (!cartContainer) return;
@@ -33,24 +50,7 @@ function renderCart() {
     const div = document.createElement("div");
     div.className = "cart-item";
 
-    div.innerHTML = `
-      <img src="${item.image}" alt="${item.name}">
-      
-      <div class="cart-details">
-        <h4>${item.name}</h4>
-        <p>₹${item.price}</p>
-
-        <div class="qty-controls">
-          <button class="minus">−</button>
-          <span class="qty">${item.quantity}</span>
-          <button class="plus">+</button>
-        </div>
-      </div>
-
-      <div class="item-total">
-        ₹${item.price * item.quantity}
-      </div>
-    `;
+    div.innerHTML = cardTemplate(item);
 
     const plusBtn = div.querySelector(".plus");
     const minusBtn = div.querySelector(".minus");
@@ -83,3 +83,41 @@ function updateCart() {
 }
 
 renderCart();
+
+buyNowBtn.addEventListener("click", () => {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  if (cart.length === 0) {
+    const toastEl = document.getElementById("emptyToast");
+    const toast = new bootstrap.Toast(toastEl);
+    toast.show();
+    return;
+  }
+
+  const totalAmount = cart.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0,
+  );
+
+  const order = {
+    orderId: Date.now(),
+    items: cart.map((item) => ({
+      id: item.id,
+      name: item.name,
+      price: item.price,
+      quantity: item.quantity,
+      image: item.image,
+    })),
+    totalAmount,
+    orderDate: new Date().toLocaleString(),
+  };
+
+  const orders = JSON.parse(localStorage.getItem("orders")) || [];
+  orders.push(order);
+
+  localStorage.setItem("orders", JSON.stringify(orders));
+  localStorage.removeItem("cart");
+  const toastEl = document.getElementById("successToast");
+  const toast = new bootstrap.Toast(toastEl);
+  toast.show();
+});
