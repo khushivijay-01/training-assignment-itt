@@ -1,6 +1,6 @@
 "use strict";
 
-import { getCart, saveCart  } from "../storage.js";
+import { getCart, saveCart } from "../storage.js";
 
 const cartContainer = document.getElementById("cart-container");
 const cartTotal = document.getElementById("cart-total");
@@ -83,7 +83,9 @@ buyNowBtn.addEventListener("click", () => {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
   if (cart.length === 0) {
-    alert("🛒 Cart is empty!");
+    const toastEl = document.getElementById("emptyToast");
+    const toast = new bootstrap.Toast(toastEl);
+    toast.show();
     return;
   }
 
@@ -110,5 +112,7 @@ buyNowBtn.addEventListener("click", () => {
 
   localStorage.setItem("orders", JSON.stringify(orders));
   localStorage.removeItem("cart");
-  alert("Order placed successfully!");
+  const toastEl = document.getElementById("successToast");
+  const toast = new bootstrap.Toast(toastEl);
+  toast.show();
 });
