@@ -1,11 +1,9 @@
 "use strict";
 
+import { getCart } from "./utilityFunctions.js";
+
 const menuContainer = document.getElementById("menu-container");
 const productCardMap = {};
-
-function getCart() {
-  return JSON.parse(localStorage.getItem("cart")) || [];
-}
 
 export function addToCart(product, quantity) {
   let cart = getCart();

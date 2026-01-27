@@ -1,6 +1,6 @@
 "use strict";
 
-import { getCart, saveCart } from "../storage.js";
+import { getCart, saveCart } from "../utilityFunctions.js";
 
 const cartContainer = document.getElementById("cart-container");
 const cartTotal = document.getElementById("cart-total");
