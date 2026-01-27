@@ -169,13 +169,12 @@ function attachCardEvents(card, product) {
     if (quantity > 1) {
       quantity--;
       qtySpan.textContent = quantity;
-      addToCart(product, quantity);
     } else {
       quantity = 0;
       qtyControls.classList.add("hidden");
       addBtn.classList.remove("hidden");
-      addToCart(product, quantity); 
     }
+    addToCart(product, quantity);
   });
 }
 
