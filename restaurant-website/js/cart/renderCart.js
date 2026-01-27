@@ -1,16 +1,10 @@
 "use strict";
 
+import { getCart, saveCart  } from "../storage.js";
+
 const cartContainer = document.getElementById("cart-container");
 const cartTotal = document.getElementById("cart-total");
 const buyNowBtn = document.querySelector(".btn.primary");
-
-export function getCart() {
-  return JSON.parse(localStorage.getItem("cart")) || [];
-}
-
-export function saveCart(cart) {
-  localStorage.setItem("cart", JSON.stringify(cart));
-}
 
 function calculateTotal(cart) {
   return cart.reduce((sum, item) => {
@@ -20,7 +14,7 @@ function calculateTotal(cart) {
 
 let cart = getCart();
 
-export function renderCart() {
+function renderCart() {
   if (!cartContainer) return;
   cartContainer.innerHTML = "";
 
@@ -105,6 +99,7 @@ buyNowBtn.addEventListener("click", () => {
       name: item.name,
       price: item.price,
       quantity: item.quantity,
+      image: item.image,
     })),
     totalAmount,
     orderDate: new Date().toLocaleString(),
