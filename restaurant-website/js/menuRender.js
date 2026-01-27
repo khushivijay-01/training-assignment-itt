@@ -7,12 +7,12 @@ const productCardMap = {};
 
 export function addToCart(product, quantity) {
   let cart = getCart();
-  const existingItem = cart.find(item => item.id === product.id);
+  const existingItem = cart.find((item) => item.id === product.id);
 
   if (existingItem) {
     existingItem.quantity = quantity;
     if (existingItem.quantity === 0) {
-      cart = cart.filter(item => item.id !== product.id);
+      cart = cart.filter((item) => item.id !== product.id);
     }
   } else if (quantity > 0) {
     cart.push({
@@ -20,7 +20,7 @@ export function addToCart(product, quantity) {
       name: product.name,
       price: product.price,
       image: product.image,
-      quantity
+      quantity,
     });
   }
 
@@ -58,30 +58,30 @@ function groupByCategory(items) {
   }, {});
 }
 
+function updateCarousel(track, currentIndex) {
+  const cardWidth = 280;
+  track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+}
+
 function setupCarousel(section, totalCards) {
   const track = section.querySelector(".carousel-track");
   const prevBtn = section.querySelector(".nav-btn.left");
   const nextBtn = section.querySelector(".nav-btn.right");
 
   let currentIndex = 0;
-  const cardWidth = 280; 
   const visibleCards = 3;
-
-  function updateCarousel() {
-    track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-  }
 
   prevBtn.addEventListener("click", () => {
     if (currentIndex > 0) {
       currentIndex--;
-      updateCarousel();
+      updateCarousel(track, currentIndex);
     }
   });
 
   nextBtn.addEventListener("click", () => {
     if (currentIndex < totalCards - visibleCards) {
       currentIndex++;
-      updateCarousel();
+      updateCarousel(track, currentIndex);
     }
   });
 }
@@ -133,13 +133,13 @@ function createProductCard(product, index, section) {
 
   card.innerHTML = productCardTemplate(product);
 
-  attachCardEvents(card, product);
+  handleEvents(card, product);
   registerCardMap(card, section, index, product);
 
   return card;
 }
 
-function attachCardEvents(card, product) {
+function handleEvents(card, product) {
   const addBtn = card.querySelector(".add-btn");
   const qtyControls = card.querySelector(".qty-controls");
   const plusBtn = card.querySelector(".plus");
@@ -152,7 +152,7 @@ function attachCardEvents(card, product) {
     window.location.href = `product.html?id=${product.id}`;
   });
 
-  addBtn.addEventListener("click", e => {
+  addBtn.addEventListener("click", (e) => {
     e.stopPropagation();
     quantity = 1;
     qtySpan.textContent = quantity;
@@ -161,7 +161,7 @@ function attachCardEvents(card, product) {
     addToCart(product, quantity);
   });
 
-  plusBtn.addEventListener("click", e => {
+  plusBtn.addEventListener("click", (e) => {
     e.stopPropagation();
     if (quantity < product.stock) {
       quantity++;
@@ -170,7 +170,7 @@ function attachCardEvents(card, product) {
     }
   });
 
-  minusBtn.addEventListener("click", e => {
+  minusBtn.addEventListener("click", (e) => {
     e.stopPropagation();
     if (quantity > 1) {
       quantity--;
@@ -188,7 +188,7 @@ function registerCardMap(card, section, index, product) {
   productCardMap[product.name.toLowerCase()] = {
     section,
     track: section.querySelector(".carousel-track"),
-    index
+    index,
   };
 }
 
@@ -238,9 +238,12 @@ function initCategoryFilter() {
 
   categoryFilter.addEventListener("change", function () {
     const selectedCategory = this.value;
-    if (selectedCategory === "all") window.scrollTo({ top: 0, behavior: "smooth" });
+    if (selectedCategory === "all")
+      window.scrollTo({ top: 0, behavior: "smooth" });
     else {
-      const targetSection = document.querySelector(`.category-section[data-category="${selectedCategory}"]`);
+      const targetSection = document.querySelector(
+        `.category-section[data-category="${selectedCategory}"]`,
+      );
       targetSection?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   });
