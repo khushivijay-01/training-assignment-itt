@@ -36,6 +36,91 @@ body {
   width: 100px;
 }
 
+#profile {
+  position: relative;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.profile-menu {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: white;
+  color: #333;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  overflow: hidden;
+}
+
+.profile-menu p {
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.profile-menu p:hover {
+  background: #f2f2f2;
+}
+
+.login-panel {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 350px;
+  max-width: 90%;
+  height: 100%;
+  background-color: #fff;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 10px 0 0 10px;
+}
+
+.login-panel.show {
+  right: 0;
+}
+
+.login-panel .login-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.login-panel .login-header h3 {
+  font-size: 1.5rem;
+  color: #7491a5;
+}
+
+.login-panel .login-header span {
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.login-panel input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.login-panel button {
+  background-color: #7491a5;
+  color: white;
+  font-weight: 600;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.login-panel button:hover {
+  background-color: #7491a5;
+}
+
 .cart-btn {
   display: flex;
   align-items: center;
@@ -48,6 +133,7 @@ body {
   background-color: rgb(87, 119, 153);
   padding: 8px 16px;
   border-radius: 8px;
+  border: 1px solid rgb(16, 16, 44);
 }
 
 #cart-count {
@@ -116,7 +202,7 @@ body {
 
 .hero {
   height: 90vh;
-  background: url("../images/background_img.jpg");
+  background: url("../images/background-img.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -322,6 +408,14 @@ body {
   align-items: center;
   gap: 8px;
   margin-top: 10px;
+}
+
+.qty-controls.hidden {
+  display: none;
+}
+
+.hidden {
+  display: none;
 }
 
 .carousel-card .qty-btn {
