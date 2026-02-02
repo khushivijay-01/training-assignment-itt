@@ -89,12 +89,12 @@ body {
 }
 
 .login-panel .login-header h3 {
-  font-size: 1.5rem;
+  font-size: 24px;
   color: #7491a5;
 }
 
 .login-panel .login-header span {
-  font-size: 1.2rem;
+  font-size: 19px;
   cursor: pointer;
 }
 
@@ -104,7 +104,7 @@ body {
   margin-bottom: 15px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: 16px;
 }
 
 .login-panel button {
@@ -174,7 +174,7 @@ body {
   position: relative;
   text-decoration: none;
   color: #ffffffcc;
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 500;
   padding: 6px 0;
   transition: color 0.3s ease;
@@ -261,14 +261,14 @@ body {
 }
 
 .menu-card-content h3 {
-  font-size: 1.1rem;
+  font-size: 18px;
   margin-bottom: 8px;
 }
 
 .menu-price {
   display: inline-block;
   margin-top: 6px;
-  font-size: 1rem;
+  font-size: 16px;
   color: #2b79cc;
 }
 
@@ -291,7 +291,7 @@ body {
 }
 
 .enquiry h2 {
-  font-size: 2rem;
+  font-size: 32px;
   margin-bottom: 10px;
   color: #1b1f5a;
 }
@@ -318,7 +318,7 @@ body {
   padding: 12px 14px;
   border-radius: 6px;
   border: 1px solid #ccc;
-  font-size: 0.95rem;
+  font-size: 15px;
   outline: none;
 }
 
@@ -328,13 +328,13 @@ body {
 
 .enquiry button {
   margin-top: 25px;
-  width: 100%;
+  width: 700px;
   padding: 14px;
   background: #1b1f5a;
   color: #fff;
   border: none;
   border-radius: 30px;
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: 600;
   cursor: pointer;
 }
@@ -382,7 +382,7 @@ body {
 }
 
 .carousel-card h4 {
-  font-size: 1rem;
+  font-size: 16px;
   margin-bottom: 6px;
 }
 
