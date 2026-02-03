@@ -1,34 +1,42 @@
 import type { EnquiryData, CartItem, UserData, OrderData } from "./types.ts";
 
+export function getFromLocalStorage<T>(key: string, value: T): T {
+  const data = localStorage.getItem(key);
+  return data ? JSON.parse(data) : value;
+}
+
+export function setToLocalStorage<T>(key: string, value: T): void {
+  localStorage.setItem(key, JSON.stringify(value));
+}
+
 export function getCart(): CartItem[]  {
-  return JSON.parse(localStorage.getItem("cart") || "[]");
+  return getFromLocalStorage<CartItem[]>("cart", []);
 }
 
 export function saveCart(cart: CartItem[]) : void{
-  localStorage.setItem("cart", JSON.stringify(cart));
+  setToLocalStorage<CartItem[]>("cart" , cart);
 }
 
 export function getEnquiryData(): EnquiryData[] {
-    return JSON.parse(localStorage.getItem("enquiries") || "[]");
+    return getFromLocalStorage<EnquiryData[]>("enquiries", []);
 }
 
 export function setEnquiryData(enquiries: EnquiryData[]): void {
-  localStorage.setItem("enquiries", JSON.stringify(enquiries));
+  setToLocalStorage<EnquiryData[]>("enquiries", enquiries);
 }
 
 export function getOrderData(): OrderData[] {
-    return JSON.parse(localStorage.getItem("orders") || "[]");
+  return getFromLocalStorage<OrderData[]>("orders", []);
 }
 
-export function setOrderData(order: OrderData[]): void {
-  localStorage.setItem("orders", JSON.stringify(order));
+export function setOrderData(orders: OrderData[]): void {
+  setToLocalStorage<OrderData[]>("orders", orders);
 }
 
 export function getUserData(): UserData | null {
-  const data = localStorage.getItem("userData");
-  return data ? JSON.parse(data) : null;
+  return getFromLocalStorage<UserData | null>("userData", null);
 }
 
 export function setUserData(user: UserData): void {
-  localStorage.setItem("userData", JSON.stringify(user));
+  setToLocalStorage<UserData>("userData", user);
 }
