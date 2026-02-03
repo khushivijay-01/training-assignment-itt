@@ -1,8 +1,8 @@
 import { getCart, saveCart, getOrderData, setOrderData } from "./utilityFunctions.ts";
 import { cardTemplate } from "./templateFile.ts";
 import type { CartItem, OrderData } from "./types.ts";
+import * as bootstrap from "bootstrap";
 
-declare const bootstrap: any;
 const cartContainer = document.getElementById("cart-container") as HTMLElement | null;
 const cartTotal = document.getElementById("cart-total") as HTMLElement | null;
 const buyNowButton = document.querySelector(".btn.primary") as HTMLButtonElement | null;
