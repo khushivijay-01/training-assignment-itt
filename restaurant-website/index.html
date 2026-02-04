@@ -34,9 +34,7 @@
         <a href="#hours-contacts">Contact</a>
         <a href="#enquiry">Enquiry</a>
       </nav>
-
       <button id="loginBtn" class="cart-btn">Login</button>
-
       <div id="profile" class="hidden">
         <span id="profile-name"></span>
         <div id="profile-menu" class="profile-menu hidden">
@@ -45,7 +43,6 @@
           <p id="logoutBtn">Logout</p>
         </div>
       </div>
-
       <a href="cart.html" class="cart-btn">
         🛒 Cart <span id="cart-count">0</span>
       </a>
@@ -87,35 +84,13 @@
       <form>
         <div class="form-group">
           <label for="name">Name:* </label>
-          <input
-            type="text"
-            id="name"
-            placeholder="Enter your name"
-            required
-          /><br />
-
+          <input type="text" id="name" placeholder="Enter your name" required/><br />
           <label for="email">Email:* </label>
-          <input
-            type="email"
-            id="email"
-            placeholder="Enter your email"
-            required
-          /><br />
-
+          <input type="email" id="email" placeholder="Enter your email" required/><br />
           <label for="phone">Phone No:* </label>
-          <input
-            type="tel"
-            id="phone"
-            placeholder="Enter your phone number"
-            required
-          /><br />
-
+          <input type="tel" id="phone" placeholder="Enter your phone number" required/><br />
           <label for="message">Message: </label>
-          <textarea
-            id="message"
-            rows="3"
-            placeholder="Your enquiry..."
-          ></textarea>
+          <textarea id="message" rows="3" placeholder="Your enquiry..."></textarea>
         </div>
         <br />
         <button type="submit" id="enquire">Submit</button>
@@ -129,16 +104,13 @@
         <h3>Login</h3>
         <span id="close-login">✖</span>
       </div>
-
       <input id="login-name" placeholder="Enter Name" />
       <input id="login-phone" placeholder="Enter Phone" />
       <input id="login-email" placeholder="Enter Email" />
-
       <button id="continueBtn">Continue</button>
     </div>
-
     <footer id="footer" class="footer"></footer>
     <button id="scrollTopBtn">⬆</button>
-    <script type="module" src="js/main.js"></script>
+    <script type="module" src="dist/main.js"></script>
   </body>
 </html>
